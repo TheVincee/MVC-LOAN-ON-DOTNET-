@@ -15,8 +15,8 @@ namespace Uncle.Controllers
     public class MainController : Controller
     {
 
-        private readonly AntonCoopContext _context;
-        public MainController(AntonCoopContext context)
+        private readonly PanoncioutangstoreContext _context;
+        public MainController(PanoncioutangstoreContext context)
         {
             _context = context;
         }

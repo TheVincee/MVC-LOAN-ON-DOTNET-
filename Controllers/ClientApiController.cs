@@ -11,9 +11,9 @@ namespace Uncle.Controllers
   
     public class ClientApiController : ControllerBase
     {
-        public readonly AntonCoopContext _context;
+        public readonly PanoncioutangstoreContext _context;
 
-        public ClientApiController(AntonCoopContext context)
+        public ClientApiController(PanoncioutangstoreContext context)
         {
             _context = context;
         }

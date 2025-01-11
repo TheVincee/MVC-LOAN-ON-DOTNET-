@@ -6,8 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AntonCoopContext>(options => 
-    options.UseMySql("server=localhost;database=salakarlcoopp;user=root", 
+builder.Services.AddDbContext<PanoncioutangstoreContext>(options => 
+    options.UseMySql("server=localhost;database= leandinstore;user=root", 
     Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.28-mariadb")));
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

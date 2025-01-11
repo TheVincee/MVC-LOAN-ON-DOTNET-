@@ -10,9 +10,9 @@ namespace Uncle.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly AntonCoopContext _context;
+        private readonly PanoncioutangstoreContext _context;
 
-        public LoginController(AntonCoopContext context)
+        public LoginController(PanoncioutangstoreContext context)
         {
             _context = context;
         }

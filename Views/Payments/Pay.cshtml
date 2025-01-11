@@ -1,18 +1,74 @@
 @model Uncle.Entities.PaymentsTb
 
-<h1>Make Payment</h1>
-
-<form asp-action="ProcessPayment" method="post">
-    <input type="hidden" asp-for="Id" name="paymentId" />
-    <div class="form-group">
-        <label asp-for="Collectable">Collectable Amount</label>
-        <input asp-for="Collectable" class="form-control" readonly />
+<div class="container d-flex justify-content-center align-items-center min-vh-100" style="background-color: #f5f5f5;">
+    <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: #ffffff; color: #333333;">
+        <h1 class="text-center mb-4 fw-bold text-primary">Make Payment</h1>
+        <form asp-action="ProcessPayment" method="post">
+            <input type="hidden" asp-for="Id" name="paymentId" />
+            <div class="form-group mb-4">
+                <label asp-for="Collectable" class="form-label fs-5 text-secondary">Collectable Amount</label>
+                <input asp-for="Collectable" class="form-control border-0 shadow-sm form-input" readonly />
+            </div>
+            <div class="form-group mb-4">
+                <label for="amount" class="form-label fs-5 text-secondary">Payment Amount</label>
+                <input type="number" name="amount" class="form-control border-0 shadow-sm form-input" min="0" step="0.01" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Submit Payment</button>
+        </form>
+        <a asp-action="ViewPayments" asp-route-clientId="@Model.ClientId" class="btn btn-outline-primary w-100">Back to Payments</a>
     </div>
-    <div class="form-group">
-        <label for="amount">Payment Amount</label>
-        <input type="number" name="amount" class="form-control" min="0" step="0.01" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Submit Payment</button>
-</form>
+</div>
 
-<a asp-action="ViewPayments" asp-route-clientId="@Model.ClientId">Back to Payments</a>
+<style>
+    .form-input {
+        background-color: #e9ecef;
+        color: #333333;
+        border-radius: 0.5rem;
+        padding: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        border-color: #007bff;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #ffffff;
+        border-radius: 0.5rem;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: #ffffff;
+    }
+
+    .card {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .form-label {
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+</style>

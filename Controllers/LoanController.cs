@@ -12,9 +12,9 @@ namespace Uncle.Controllers
     [Authorize] 
     public class LoanController : Controller
     {
-        private readonly AntonCoopContext _context;
+        private readonly PanoncioutangstoreContext _context;
 
-        public LoanController(AntonCoopContext context)
+        public LoanController(PanoncioutangstoreContext context)
         {
             _context = context;
         }

@@ -1,41 +1,41 @@
 @model Uncle.Entities.LoanDb
 
-<h1>Create Loan</h1>
+<h1 class="text-center mb-4" style="color: #333;">Create Loan</h1>
 @{
     ViewData["Title"] = "Create";
 }
-<form asp-action="Create" method="post">
 
+<form asp-action="Create" method="post" style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 800px; margin: auto;">
     <div class="row g-3">
         <div class="col">
-            <label asp-for="ClientId">Client</label>
-            <select asp-for="ClientId" id="clientId" class="form-control"></select>
+            <label asp-for="ClientId" class="form-label" style="color: #333;">Client</label>
+            <select asp-for="ClientId" id="clientId" class="form-control" style="background-color: #fff; border: 1px solid #ccc;"></select>
         </div>
         <div class="col">
-            <label asp-for="Status">Status</label>
-            <input asp-for="Status" type="text" class="form-control" placeholder="Status">
+            <label asp-for="Status" class="form-label" style="color: #333;">Status</label>
+            <input asp-for="Status" type="text" class="form-control" placeholder="Status" style="background-color: #fff; border: 1px solid #ccc;">
         </div>
     </div>
 
     <div class="row g-3">
         <div class="col">
-            <label asp-for="Amount">Amount</label>
-            <input asp-for="Amount" type="number" class="form-control" placeholder="Amount" id="amount">
+            <label asp-for="Amount" class="form-label" style="color: #333;">Amount</label>
+            <input asp-for="Amount" type="number" class="form-control" placeholder="Amount" id="amount" style="background-color: #fff; border: 1px solid #ccc;">
         </div>
         <div class="col">
-            <label asp-for="NoOfPayment">No of Payment</label>
-            <input asp-for="NoOfPayment" type="number" class="form-control" placeholder="Enter Number of Payment" id="noOfPayment" onchange="calculateDueDate()">
+            <label asp-for="NoOfPayment" class="form-label" style="color: #333;">No of Payment</label>
+            <input asp-for="NoOfPayment" type="number" class="form-control" placeholder="Enter Number of Payment" id="noOfPayment" onchange="calculateDueDate()" style="background-color: #fff; border: 1px solid #ccc;">
         </div>
     </div>
 
     <div class="row g-3">
         <div class="col">
-            <label asp-for="Deduction">Deduction</label>
-            <input asp-for="Deduction" type="number" class="form-control" placeholder="Enter Deduction" id="deduction" readonly>
+            <label asp-for="Deduction" class="form-label" style="color: #333;">Deduction</label>
+            <input asp-for="Deduction" type="number" class="form-control" placeholder="Enter Deduction" id="deduction" style="background-color: #fff; border: 1px solid #ccc;">
         </div>
         <div class="col">
-            <label asp-for="Type">Type</label>
-            <select asp-for="Type" id="typeofPayment" onchange="calculateDueDate(); calculateAmounts();">
+            <label asp-for="Type" class="form-label" style="color: #333;">Type</label>
+            <select asp-for="Type" id="typeofPayment" class="form-control" onchange="calculateDueDate(); calculateAmounts();" style="background-color: #fff; border: 1px solid #ccc;">
                 <option value="Daily">Daily</option>
                 <option value="Weekly">Weekly</option>
                 <option value="Monthly">Monthly</option>
@@ -45,41 +45,43 @@
 
     <div class="row g-3">
         <div class="col">
-            <label asp-for="Interest">Interest</label>
-            <input asp-for="Interest" type="number" step="0.01" class="form-control" placeholder="Interest" id="interest" readonly>
+            <label asp-for="Interest" class="form-label" style="color: #333;">Interest</label>
+            <input asp-for="Interest" type="number" step="0.01" class="form-control" placeholder="Interest" id="interest" style="background-color: #fff; border: 1px solid #ccc;">
         </div>
         <div class="col">
-            <label asp-for="DateCreated">Date Created</label>
-            <input asp-for="DateCreated" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly />
+            <label asp-for="DateCreated" class="form-label" style="color: #333;">Date Created</label>
+            <input asp-for="DateCreated" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly style="background-color: #f1f1f1; border: 1px solid #ccc;">
         </div>
     </div>
 
     <div class="row g-3">
         <div class="col">
-            <label asp-for="RecievableAmount">Receivable Amount</label>
-            <input asp-for="RecievableAmount" type="number" step="0.01" class="form-control" placeholder="Receivable Amount" id="receivableAmount" readonly>
+            <label asp-for="RecievableAmount" class="form-label" style="color: #333;">Receivable Amount</label>
+            <input asp-for="RecievableAmount" type="number" step="0.01" class="form-control" placeholder="Receivable Amount" id="receivableAmount" readonly style="background-color: #f1f1f1; border: 1px solid #ccc;">
         </div>
         <div class="col">
-            <label asp-for="DueDate">Due Date</label>
-            <input asp-for="DueDate" type="date" class="form-control" placeholder="Enter Due Date" id="dueDate" readonly>
+            <label asp-for="DueDate" class="form-label" style="color: #333;">Due Date</label>
+            <input asp-for="DueDate" type="date" class="form-control" placeholder="Enter Due Date" id="dueDate" readonly style="background-color: #f1f1f1; border: 1px solid #ccc;">
         </div>
     </div>
 
     <div class="row g-3">
         <div class="col">
-            <label asp-for="PayableAmount">Payable Amount</label>
-            <input asp-for="PayableAmount" type="number" step="0.01" class="form-control" placeholder="Payable Amount" id="payableAmount" readonly>
+            <label asp-for="PayableAmount" class="form-label" style="color: #333;">Payable Amount</label>
+            <input asp-for="PayableAmount" type="number" step="0.01" class="form-control" placeholder="Payable Amount" id="payableAmount" readonly style="background-color: #f1f1f1; border: 1px solid #ccc;">
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary" style="background-color: #007bff; border-color: #007bff;">Submit</button>
+    </div>
 </form>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
         $.ajax({
-            url: 'http://localhost:5044/ClientAPI/GetClients'
+            url: 'http://localhost:5152/ClientAPI/GetClients'
         })
         .done(function(result) {
             console.log(result);
@@ -104,6 +106,10 @@
     const receivableAmountInput = document.getElementById('receivableAmount');
     const payableAmountInput = document.getElementById('payableAmount');
     const dueDateInput = document.getElementById('dueDate');
+
+    // Add event listeners for manual input
+    interestInput.addEventListener('input', calculatePayableFromManualInput);
+    deductionInput.addEventListener('input', calculatePayableFromManualInput);
 
     typeSelect.addEventListener('change', function() {
         calculateDueDate();
@@ -144,6 +150,21 @@
         payableAmountInput.value = payableAmount.toFixed(2);
     }
 
+    function calculatePayableFromManualInput() {
+        const interest = parseFloat(interestInput.value) || 0;
+        const deduction = parseFloat(deductionInput.value) || 0;
+        const amount = parseFloat(amountInput.value) || 0;
+
+        const noOfPayment = parseFloat(noOfPaymentInput.value) || 1;
+
+        // Calculate total interest amount
+        const interestAmount = amount * interest * noOfPayment;
+
+        // Update payable amount based on manual inputs
+        const payableAmount = amount + interestAmount - deduction * noOfPayment;
+        payableAmountInput.value = payableAmount.toFixed(2);
+    }
+
     function calculateDueDate() {
         const selectedType = typeSelect.value;
         const noOfPayment = parseInt(noOfPaymentInput.value);
@@ -156,6 +177,6 @@
         } else if (selectedType === 'Monthly') {
             currentDate.setMonth(currentDate.getMonth() + noOfPayment);
         }
-        dueDateInput.value = currentDate.toISOString().split('T')[0];
+        dueDateInput.value = currentDate.toISOString().slice(0, 10);
     }
 </script>

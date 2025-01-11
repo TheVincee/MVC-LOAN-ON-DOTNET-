@@ -2,25 +2,73 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="container mt-5">
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title">Register</h2>
+<div class="container d-flex justify-content-center align-items-center min-vh-100" style="background-color: #f3f4f6;">
+    <div class="card shadow-lg border-0 rounded-lg" style="background-color: #ffffff; width: 100%; max-width: 400px;">
+        <div class="card-body p-5">
+            <h2 class="card-title text-center mb-4" style="color: #6200ea;">Register</h2>
             <form asp-action="Register" method="post">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required />
+                <div class="form-group mb-3">
+                    <label for="username" class="form-label" style="color: #6200ea;">Username</label>
+                    <input type="text" class="form-control border-0 shadow-sm" id="username" name="username" required 
+                           style="background-color: #ffffff; color: #6200ea; border-radius: 0.5rem; border: 1px solid #e0e0e0;" />
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required />
+                <div class="form-group mb-3">
+                    <label for="password" class="form-label" style="color: #6200ea;">Password</label>
+                    <input type="password" class="form-control border-0 shadow-sm" id="password" name="password" required 
+                           style="background-color: #ffffff; color: #6200ea; border-radius: 0.5rem; border: 1px solid #e0e0e0;" />
                 </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
+                <div class="form-group mb-4">
+                    <label for="confirmPassword" class="form-label" style="color: #6200ea;">Confirm Password</label>
+                    <input type="password" class="form-control border-0 shadow-sm" id="confirmPassword" name="confirmPassword" required 
+                           style="background-color: #ffffff; color: #6200ea; border-radius: 0.5rem; border: 1px solid #e0e0e0;" />
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn w-100 py-2 btn-3d">Register</button>
             </form>
         </div>
     </div>
 </div>
+
+<style>
+    .btn-3d {
+        background-color: #6200ea;
+        color: #ffffff;
+        border: none;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-3d:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .card {
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .form-control {
+        background-color: #ffffff;
+        color: #6200ea;
+        border-radius: 0.5rem;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control:focus {
+        background-color: #ffffff;
+        color: #6200ea;
+        border-color: #6200ea;
+        box-shadow: 0 0 5px rgba(98, 0, 234, 0.3);
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+</style>

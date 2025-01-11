@@ -1,21 +1,53 @@
 @model Uncle.Entities.LoanDb
 
-<div class="container mt-5">
-    <input type="hidden" asp-for="Id" />
-    <h2>Update Loan</h2>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    .form-control {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="container mt-5 p-4 border rounded-3 shadow-lg bg-white">
+    <h2 class="mb-4 text-center text-primary">Update Loan</h2>
     <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="ClientId" class="control-label">Client</label>
-                    <input asp-for="ClientId" class="form-control" />
+                    <label asp-for="ClientId" class="form-label">Client</label>
+                    <input asp-for="ClientId" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="ClientId" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="Type" class="control-label">Type</label>
-                    <input asp-for="Type" class="form-control" />
+                    <label asp-for="Type" class="form-label">Type</label>
+                    <input asp-for="Type" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="Type" class="text-danger"></span>
                 </div>
             </div>
@@ -24,15 +56,15 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="Status" class="control-label">Status</label>
-                    <input asp-for="Status" class="form-control" />
+                    <label asp-for="Status" class="form-label">Status</label>
+                    <input asp-for="Status" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="Amount" class="control-label">Amount</label>
-                    <input asp-for="Amount" class="form-control" />
+                    <label asp-for="Amount" class="form-label">Amount</label>
+                    <input asp-for="Amount" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="Amount" class="text-danger"></span>
                 </div>
             </div>
@@ -41,15 +73,15 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="Interest" class="control-label">Interest</label>
-                    <input asp-for="Interest" class="form-control" />
+                    <label asp-for="Interest" class="form-label">Interest</label>
+                    <input asp-for="Interest" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="Interest" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="NoOfPayment" class="control-label">No of Payment</label>
-                    <input asp-for="NoOfPayment" class="form-control" />
+                    <label asp-for="NoOfPayment" class="form-label">No of Payment</label>
+                    <input asp-for="NoOfPayment" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="NoOfPayment" class="text-danger"></span>
                 </div>
             </div>
@@ -58,15 +90,15 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="Deduction" class="control-label">Deduction</label>
-                    <input asp-for="Deduction" class="form-control" />
+                    <label asp-for="Deduction" class="form-label">Deduction</label>
+                    <input asp-for="Deduction" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="Deduction" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="DateCreated" class="control-label">Date Created</label>
-                    <input asp-for="DateCreated" class="form-control" />
+                    <label asp-for="DateCreated" class="form-label">Date Created</label>
+                    <input asp-for="DateCreated" type="date" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="DateCreated" class="text-danger"></span>
                 </div>
             </div>
@@ -75,15 +107,15 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="RecievableAmount" class="control-label">Receivable Amount</label>
-                    <input asp-for="RecievableAmount" class="form-control" />
+                    <label asp-for="RecievableAmount" class="form-label">Receivable Amount</label>
+                    <input asp-for="RecievableAmount" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="RecievableAmount" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="DueDate" class="control-label">Due Date</label>
-                    <input asp-for="DueDate" class="form-control" />
+                    <label asp-for="DueDate" class="form-label">Due Date</label>
+                    <input asp-for="DueDate" type="date" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="DueDate" class="text-danger"></span>
                 </div>
             </div>
@@ -92,23 +124,23 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="PayableAmount" class="control-label">Payable Amount</label>
-                    <input asp-for="PayableAmount" class="form-control" />
+                    <label asp-for="PayableAmount" class="form-label">Payable Amount</label>
+                    <input asp-for="PayableAmount" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="PayableAmount" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="Term" class="control-label">Term</label>
-                    <input asp-for="Term" class="form-control" />
+                    <label asp-for="Term" class="form-label">Term</label>
+                    <input asp-for="Term" class="form-control" style="background-color: #ffffff;" />
                     <span asp-validation-for="Term" class="text-danger"></span>
                 </div>
             </div>
         </div>
 
-        <div class="form-group mt-3">
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-primary shadow-sm">Update</button>
+            <a asp-action="Index" class="btn btn-secondary shadow-sm">Cancel</a>
         </div>
     </form>
 </div>

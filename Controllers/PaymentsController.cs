@@ -6,9 +6,9 @@ namespace SALA_ANTHONY.Controllers
 {
     public class PaymentsController : Controller
     {
-        private readonly AntonCoopContext _context;
+        private readonly PanoncioutangstoreContext _context;
 
-        public PaymentsController(AntonCoopContext context)
+        public PaymentsController(PanoncioutangstoreContext context)
         {
             _context = context;
         }
